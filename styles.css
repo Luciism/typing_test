@@ -1,0 +1,201 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+p {
+  color: white;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #222222;
+  height: 100vh;
+  gap: 25px;
+}
+
+.outer-container {
+  width: min(1000px, 90vw);
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding: 25px;
+  overflow: scroll;
+}
+
+.typing-container {
+  position: relative;
+  height: 210px;
+  cursor: text;
+  overflow-y: hidden;
+
+  &.focused {
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+
+  & .words {
+    margin: 0;
+
+    & .word {
+      font-size: 32px;
+      font-weight: 600;
+      color: #828282;
+
+      & .correct-char {
+        color: greenyellow;
+      }
+
+      & .incorrect-char {
+        color: red;
+      }
+
+      & .current-char {
+        background-color: rgba(255, 255, 255, 0.08);
+      }
+
+      &.current-word {
+        color: white;
+      }
+    }
+  }
+}
+
+.typing-info {
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  & hr {
+    border: none;
+    height: 1px;
+    width: 100%;
+    background-color: gray;
+  }
+
+  & .typing-stats {
+    display: flex;
+    gap: 25px;
+
+    & .info {
+      color: white;
+      font-size: 26px;
+      margin: 0;
+    }
+  }
+
+  & .typing-controls {
+    display: flex;
+    gap: 25px;
+    height: 45px;
+
+    & .control {
+      padding: 0 20px;
+      height: 100%;
+      font-size: 22px;
+      margin: 0;
+      transition: transform 0.3s ease-in-out;
+      border-radius: 8px;
+      color: white;
+    }
+
+    & select {
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 2px solid white;
+
+      & option {
+        color: black;
+      }
+    }
+
+    & button {
+      background-color: gray;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.03);
+      }
+
+      &.reset {
+        background-color: red;
+      }
+    }
+  }
+}
+
+.results {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: min(800px, 90%);
+  min-height: 480px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  background-color: #222222;
+  transition: transform 0.15s ease-in;
+  padding: 24px 36px;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -30%);
+
+  &.visible {
+    opacity: 1;
+    pointer-events: all;
+    transform: translate(-50%, -50%);
+  }
+
+  & h2 {
+    color: white;
+  }
+}
+
+.results .game-stats {
+  display: flex;
+  flex-wrap: 1;
+  justify-content: space-between;
+
+  & p {
+    text-align: center;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+
+    & .value {
+      font-size: 36px;
+      font-weight: 600;
+    }
+  }
+}
+
+.results .continue-btn {
+  border-radius: 4px;
+  padding: 12px 22px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 22px;
+  transition: background-color 0.15s ease-in;
+  cursor: pointer;
+
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}

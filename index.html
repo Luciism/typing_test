@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Typing Test</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <h1 class="heading">Typing Test</h1>
+    <div class="results" id="summary-info">
+      <h2>Typing Summary</h2>
+      <div class="game-stats">
+        <p>
+          <span class="name">Duration</span>
+          <br />
+          <span class="value" id="summary-duration-stat">30s</span>
+        </p>
+        <p>
+          <span class="name">WPM</span>
+          <br />
+          <span class="value" id="summary-wpm-stat">97</span>
+        </p>
+        <p>
+          <span class="name">Words Typed</span>
+          <br />
+          <span class="value" id="summary-words-total-stat">48</span>
+        </p>
+        <p>
+          <span class="name">Mistakes</span>
+          <br />
+          <span class="value" id="summary-mistakes-stat">0</span>
+        </p>
+      </div>
+      <button class="continue-btn" id="summary-continue-btn">Continue</button>
+    </div>
+    <div class="typing-container outer-container" id="typing-box">
+      <p class="words"></p>
+    </div>
+    <div class="typing-info outer-container">
+      <div class="typing-stats">
+        <p class="info"><span class="wpm" id="stat-wpm">--</span> WPM</p>
+        <p class="info"><span id="stat-game-timer">--</span>s</p>
+      </div>
+      <hr />
+      <div class="typing-controls">
+        <button class="control reset" id="reset-btn">Reset</button>
+        <select
+          class="control"
+          title="Difficulty"
+          name="difficulty-select"
+          id="difficulty-select"
+        >
+          <option value="easy">Easy</option>
+          <option value="medium" disabled>Medium</option>
+          <option value="hard" disabled>Hard</option>
+        </select>
+        <select
+          class="control"
+          title="Duration"
+          name="duration-select"
+          id="duration-select"
+        >
+          <option value="5">5 Seconds</option>
+          <option value="15">15 Seconds</option>
+          <option value="30">30 Seconds</option>
+          <option value="60">1 Minute</option>
+          <option value="120">2 Minutes</option>
+          <option value="300">5 Minutes</option>
+        </select>
+      </div>
+    </div>
+  </body>
+</html>
